@@ -97,6 +97,3 @@ The interpreter depends on it at runtime.**
 Created by Dhejesh
 Github : https://github.com/dhejesh926
 Website : https://dhejesh926.github.io
-
-```sh
-mak
