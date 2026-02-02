@@ -1,0 +1,62 @@
+# Demonstrates all features: variables, input, eval, functions, if/elseif/else
+
+# Initial variables
+set a = 42
+set b = 10
+
+print a
+print b
+
+#Eval example
+eval a + b
+eval a*2 - b
+
+# Input example
+print "Enter name and City"
+input name
+input city
+print "Hello " name " from " city "!"
+
+# Function definitions
+function mathops
+    print "The sum of a and b is" a b
+    print "a squared is" a 2
+end
+call mathops
+
+function nesteddemo
+    if a > b
+        print "a is bigger than b"
+    end
+end
+call nesteddemo
+
+function finaldemo
+    print "Hello, " name "!"
+end
+call finaldemo
+
+# Final eval
+eval a + b
+eval a * b
+eval a - b
+function frozen
+    print "Time froze, do you want to continue? press 1 to continue, 2 to unfreeze"
+    input choice
+    if choice == 1
+        print "Continued"
+    else
+        print "Unfreezed"
+    end
+end
+call frozen
+
+# Function inside function
+function host
+    function main
+        print "Main function called"
+    end
+    call main
+end
+call host
+print "Demo Completed Successfully!"

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solth — A Tiny Toy Language</title>
+
+<style>
+:root {
+    --bg: #0f1117;
+    --panel: #161a23;
+    --text: #e6e6eb;
+    --muted: #a0a4b8;
+    --accent: #7aa2f7;
+    --accent-soft: #2b2f42;
+    --border: #2a2f45;
+    --mono: "JetBrains Mono", Consolas, monospace;
+    --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.65;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px;
+    background: var(--panel);
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px var(--border),
+                0 20px 40px rgba(0,0,0,0.4);
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.2em;
+    color: var(--accent);
+}
+
+h2 {
+    margin-top: 2em;
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+}
+
+p {
+    margin: 0.6em 0;
+    color: var(--text);
+}
+
+ul {
+    margin: 0.6em 0 0.6em 1.2em;
+}
+
+li {
+    margin: 0.3em 0;
+}
+
+code {
+    font-family: var(--mono);
+    background: var(--accent-soft);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<h1>Solth — A Tiny Toy Language</h1>
+
+<h2>What is Solth?</h2>
+<p>
+Solth is a tiny, easy-to-read interpreted toy language.
+It is my <strong>third programming language</strong> and my
+<strong>first serious language project</strong> that I am publishing publicly.
+</p>
+
+<p>
+Solth is intentionally minimal. It does not try to be fast, safe, or complete.
+Instead, it focuses on being <strong>simple</strong>,
+<strong>hackable</strong>, and <strong>understandable</strong>.
+</p>
+
+<p>
+A programmer can learn Solth in under 5 minutes by reading the demo file.
+The source code is small and easy to modify.
+</p>
+
+<h2>Why Lua?</h2>
+<p>
+Solth is implemented in <strong>Lua (LuaJIT)</strong> because Lua is the interpreted
+language I use the most. Lua is simple, expressive, and perfect for writing small interpreters.
+</p>
+
+<p>
+The Solth interpreter written in Lua is compact and readable,
+making experimentation and modification very easy.
+</p>
+
+<h2>What is the role of C?</h2>
+<p>
+Lua by itself does not provide a standalone executable interpreter with proper
+command-line argument handling.
+</p>
+
+<p>
+To solve this, Solth uses a <strong>C host</strong> that embeds <strong>LuaJIT</strong>.
+This C program loads <code>solth.lua</code> and executes <code>.solth</code> files.
+</p>
+
+<p>
+This makes Solth feel like a real executable language interpreter.
+</p>
+
+<h2>Supported Features</h2>
+<ul>
+    <li>Variables (dynamically typed)</li>
+    <li>Input and output</li>
+    <li><code>if</code> and <code>else</code> conditionals</li>
+    <li>Comparisons</li>
+    <li>Function declarations</li>
+    <li>Calling functions</li>
+    <li>Nested functions</li>
+    <li>Expression evaluation</li>
+</ul>
+
+<p>
+There are <strong>no data types</strong> — everything is dynamic.
+</p>
+
+<h2>Unsupported / Broken Features</h2>
+<ul>
+    <li><code>elseif</code> is broken</li>
+    <li>Loops are not implemented</li>
+    <li>Function names cannot contain underscores (<code>_</code>)</li>
+    <li>Function arguments are not supported</li>
+    <li>Many edge cases are not handled</li>
+</ul>
+
+<p>
+These limitations are intentional for learning purposes.
+</p>
+
+<h2>How to Learn Solth</h2>
+<p>
+Read the <code>demo.solth</code> file.
+</p>
+
+<p>
+That is enough to understand the entire language.
+</p>
+
+<h2>How to Build Solth</h2>
+<p><strong>Requirements:</strong></p>
+<ul>
+    <li>LuaJIT headers and libraries installed</li>
+</ul>
+
+<p><strong>Steps:</strong></p>
+<ul>
+    <li>Run <code>make</code></li>
+    <li>A <strong>statically linked</strong> Solth interpreter will be produced</li>
+</ul>
+
+<p>
+<strong>IMPORTANT:</strong><br>
+Do not remove <code>solth.lua</code>. The interpreter depends on it at runtime.
+</p>
+
+<h2>Project Philosophy</h2>
+<p>
+Solth is not meant to compete with real languages.
+It exists to explore language design, interpreters, and embedding.
+</p>
+
+<p>
+It is small, imperfect, and educational.
+</p>
+
+<footer>
+<p>
+Created by <strong>Dhejesh</strong><br>
+GitHub:
+<a href="https://github.com/dhejesh926" target="_blank">
+https://github.com/dhejesh926
+</a><br>
+Website:
+<a href="https://dhejesh926.github.io" target="_blank">
+https://dhejesh926.github.io
+</a>
+</p>
+</footer>
+
+</main>
+</body>
+</html>
+
